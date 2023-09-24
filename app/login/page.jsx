@@ -26,6 +26,9 @@ const LoginPage = () => {
     const email = formData.email;
     const password = formData.password;
     const createdAt = Date.now();
+    if (!fullName || !email || !password) {
+      return;
+    }
     try {
       //Create user
       const res = await createUserWithEmailAndPassword(auth, email, password);
@@ -62,6 +65,9 @@ const LoginPage = () => {
   const firebaseLogin = async () => {
     const email = formData.email;
     const password = formData.password;
+    if (!email || !password) {
+      return;
+    }
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/conversationList");

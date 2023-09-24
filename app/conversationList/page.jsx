@@ -1,17 +1,11 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChatItem } from "react-chat-elements";
-// import "./style.css";
-import { useNavigate } from "react-router-dom";
 import { doc, onSnapshot, getDoc } from "firebase/firestore";
 import { db } from "../utils/firebase";
-import { AuthContext } from "../context/AuthContext";
 import LoadingState from "../components/loader";
 import moment from "moment";
 import NoDataFound from "../components/noDataFound";
-
-// import ToastMessage from "../../../../common/Toast";
-// import { defaultMessage } from "../../../../constants/validationMessages";
 import { auth } from "../utils/firebase";
 import { onAuthStateChanged } from "firebase/auth";
 import { Navbar } from "react-chat-elements";
@@ -19,7 +13,7 @@ import { useRouter } from "next/navigation";
 import _ from "lodash";
 import Link from "@/node_modules/next/link";
 import "react-chat-elements/dist/main.css";
-import { getAuth, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 
 export default function ConversationList() {
   const [chats, setChats] = useState([]);

@@ -72,7 +72,11 @@ const LoginPage = () => {
       await signInWithEmailAndPassword(auth, email, password);
       router.push("/conversationList");
     } catch (err) {
-      console.error(err);
+      if (err.code === "auth/invalid-login-credentials") {
+        alert("Invalid Credentails");
+      }
+
+      console.error(err.code);
     }
   };
 
